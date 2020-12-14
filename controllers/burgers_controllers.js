@@ -7,7 +7,7 @@ router.get("/", function (req, res) {
     let burgers= {
       burgers: data,
     };
-    console.log(burgers);
+    console.log(burgers, data);
     res.render("index", { burgers:data});
   });
 });

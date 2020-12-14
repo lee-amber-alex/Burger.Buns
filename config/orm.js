@@ -35,7 +35,7 @@ function toSql(ob){
 
 const orm = {
   selectAll: function (table, cb) {
-    const queryString = "SELECT * FROM " + table + ";";
+    let queryString = "SELECT * FROM " + table + ";";
     connection.query(queryString, function (err, res) {
       if (err) {
         throw err;
@@ -45,7 +45,7 @@ const orm = {
   },
 
   insertOne: function (table, col, vals, cb) {
-    const queryString = "INSERT INTO " + table;
+    let queryString = "INSERT INTO " + table;
     queryString += " (";
     queryString += col.toString();
     queryString += ") ";
@@ -62,7 +62,7 @@ const orm = {
   },
 
   updateOne: function (table, updateCol, condition, cb) {
-    const queryString = "UPDATE " + table;
+    let queryString = "UPDATE " + table;
 
     queryString += "SET ";
     queryString += toSql(updateCol);
