@@ -1,5 +1,4 @@
 
-
   <h1 class="header-text p-2 mt-2">Burger My Buns</h1>
 
   <div class="container">
@@ -18,11 +17,9 @@
     <div class="md-col-6 align-md-left p-1">
       <h2 class="header-text p-1">All Done!</h2>
 
-      {{#each devoured}}
+      {{#each burgers}}
       {{#if devoured}}
-      <p class="font-weight-bold p-1 text-block">{{devoured}}</p>
-      <button class="btn btn-danger delete-it" data-id="{{id}}">Trash
-      </button>
+      {{> burgers/burger-block}}
       {{/if}}
       {{/each}}
 
