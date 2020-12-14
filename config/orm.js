@@ -15,6 +15,13 @@ function toSql(ob){
     // is "key" aka id?
     const value = ob[key];
     // soley used to turn spaces into string?
+    /* 
+    {
+      devoured: 1,
+      delicious: 0,
+      burger_name: badburger,
+    }
+    */
     if(Object.hasOwnProperty.call(ob,key)){
       if(typeof value === "string" && value.indexOf(" ") >= 0) {
         // adding ' ?
@@ -54,13 +61,13 @@ const orm = {
     });
   },
 
-  updateOne: function (table, updateCol, id, cb) {
+  updateOne: function (table, updateCol, condition, cb) {
     const queryString = "UPDATE " + table;
 
     queryString += "SET ";
     queryString += toSql(updateCol);
-    queryString += " Where ";
-    queryString += id;
+    queryString += " WHERE ";
+    queryString += condition;
 
     connection.query(queryString, function(err, result){
       if(err){
