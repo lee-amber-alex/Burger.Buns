@@ -18,6 +18,11 @@ const burger = {
       cb(res);
     });
   },
+  deleteOne: function (updateCol, cb) {
+    orm.deleteOne("burgers", updateCol, function (res) {
+      cb(res);
+    });
+  },
 };
 
 module.exports = burger;

@@ -64,7 +64,7 @@ const orm = {
   updateOne: function (table, updateCol, condition, cb) {
     let queryString = "UPDATE " + table;
 
-    queryString += "SET ";
+    queryString += " SET ";
     queryString += toSql(updateCol);
     queryString += " WHERE ";
     queryString += condition;
@@ -77,6 +77,19 @@ const orm = {
     })
   
   },
+  deleteOne: function(table, condition, cb) {
+    var queryString = "DELETE FROM " + table;
+    queryString += " WHERE ";
+    queryString += condition;
+
+    connection.query(queryString, function(err, result) {
+      if (err) {
+        throw err;
+      }
+
+      cb(result);
+    });
+  }
 };
 
 module.exports = orm;

@@ -1,5 +1,8 @@
-{{burgers}}
 <p class="font-weight-bold p-1 text-block">{{burger_name}}
+	{{#if newdevoured}} <button data-ateburger="{{newdevoured}}" data-id="{{id}}" class="btn btn-success eat-it">EAT-IT!
+	</button>
+	{{else}}
 	<button class="btn btn-danger delete-it" data-id="{{id}}">Trash
 	</button>
+	{{/if}}
 </p>

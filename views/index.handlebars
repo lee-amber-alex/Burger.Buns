@@ -1,44 +1,35 @@
+<h1 class="header-text p-2 mt-2">Burger My Buns</h1>
 
-  <h1 class="header-text p-2 mt-2">Burger My Buns</h1>
-
-  <div class="container">
-    <div class="row">
-      <div class="md-col-6 align-md-right p-1">
-        <h2 class="header-text p-1">Ready to Eat!</h2>
-        {{#each burgers}}
-        {{#unless devoured}}
-        <p>{{burger_name}}
-          <button class="btn btn-success devour-it" data-id="{{id}}">Eat It!</button>
-        </p>
-        {{/unless}}
-        {{/each}}
-      </div>
+<div class="container">
+  <div class="row">
+    <div class="md-col-6 align-md-right p-1">
+      <h2 class="header-text p-1">Ready to Eat!</h2>
+      {{#each burgers}}
+      {{#unless devoured}}
+      {{> burgers/burger-block newdevoured=true}} {{/unless}} {{/each}} </div>
     </div>
     <div class="md-col-6 align-md-left p-1">
       <h2 class="header-text p-1">All Gone!</h2>
 
       {{#each burgers}}
       {{#if devoured}}
-      {{> burgers/burger-block}}
-      {{/if}}
-      {{/each}}
 
+      {{> burgers/burger-block newdevoured=false}} {{/if}} {{/each}} </div>
+
+
+
+        <p></p>
+        <div class="row d-flex justify-content-center">
+          <div class="form-group form-frame p-2">
+            <h2 class="header-text p-1">Burger Me!</h2>
+            <form class="create-form">
+              <div class="form-group">
+                <label for="new-name">Type of Burger:</label>
+                <input type="text" id="newBurger" name="newBurger">
+              </div>
+              <button class="btn btn-success" type="submit">Order up!</button>
+            </form>
+          </div>
+        </div>
     </div>
-  
-
-
-<p></p>
-<div class="row d-flex justify-content-center">
-  <div class="form-group form-frame p-2">
-    <h2 class="header-text p-1">Burger Me!</h2>
-    <form class="create-form">
-      <div class="form-group">
-        <label for="new-name">Type of Burger:</label>
-        <input type="text" id="newBurger" name="newBurger">
-      </div>
-      <button class="btn btn-success" type="submit">Order up!</button>
-    </form>
   </div>
-</div>
-</div>
-</div>

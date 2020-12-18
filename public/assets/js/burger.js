@@ -1,36 +1,43 @@
+$(".create-form").on("submit", function (event) {
+  event.preventDefault();
+  let addBurger = {
+    burger_name: $("#newBurger").val().trim(),
+  
+  };
 
-  $(".create-form").on("submit", function(event) {
-    // Make sure to preventDefault on a submit event.
-    event.preventDefault();
-    var addBurger = {
-      burger_name: $("#newBurger").val().trim(),
-    };
+  $.ajax("/api/burger", {
+    type: "POST",
+    data: addBurger,
+  }).then(function () {
+    console.log("created new Burger");
 
-    // Send the POST request.
-    $.ajax("/api/burger", {
-      type: "POST",
-      data: addBurger
-    }).then(
-      function() {
-        console.log("created new Burger");
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+    location.reload();
   });
+});
 
-  $(".delete-cat").on("click", function(event) {
-    var id = $(this).data("id");
+$(".eat-it").on("click", function (event) {
+  let id = $(this).data("id");
+  let ateBurger = $(this).data("ateburger");
+  console.log(ateBurger)
+  let body ={
+    devoured: ateBurger
+  }
 
-    // Send the DELETE request.
-    $.ajax("/api/cats/" + id, {
-      type: "DELETE"
-    }).then(
-      function() {
-        console.log("deleted cat", id);
-        // Reload the page to get the updated list
-        location.reload();
-      }
-    );
+  $.ajax("/api/burger/" + id, {
+    type: "PUT",
+    data: body
+  }).then(function () {
+    location.reload();
   });
+});
+$(".delete-it").on("click", function (event) {
+  let id = $(this).data("id");
 
+  $.ajax("/api/burger/" + id, {
+    type: "DELETE",
+  }).then(function () {
+    console.log("deleted burger", id);
+
+    location.reload();
+  });
+});
