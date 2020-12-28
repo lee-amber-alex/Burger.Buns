@@ -1,20 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>burgermybuns</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link href="./assets/css/style.css" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+
+</head>
+
 <body class="bodyStyle">
   <nav class="navbar navStyle ">
     <span class="navbar-brand mb-0 ">Burger My Buns</span>
   </nav>
+  
   <div class="container contBurger ">
+
     <div class="row">
       <div class="column-md-6 colFix">
+
         <h2 class="header-text p-1">Ready to Eat!</h2>
         {{#each burgers}}
         {{#unless devoured}}
         {{> burgers/burger-block newdevoured=true}} {{/unless}} {{/each}}
+
       </div>
       <div class="column-md-6 colFix">
+
         <h2 class="header-text p-1">All Gone!</h2>
+
         {{#each burgers}}
         {{#if devoured}}
+
         {{> burgers/burger-block newdevoured=false}} {{/if}} {{/each}}
+
       </div>
     </div>
   </div>
@@ -35,7 +57,16 @@
     </div>
   </div>
 
+  
+
   </div>
+
+
+
+
+
 
   <script src="assets/js/burger.js"></script>
 </body>
+
+</html>
