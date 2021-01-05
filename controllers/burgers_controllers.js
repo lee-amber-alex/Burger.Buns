@@ -8,7 +8,7 @@ router.get("/", function (req, res) {
       burgers: data,
     };
    
-    res.render("index", { burgers: data });
+    res.render("index", burgers);
   });
 });
 
