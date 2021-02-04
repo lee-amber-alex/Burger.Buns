@@ -6,18 +6,17 @@
      
 ## Description
 
-Burger app that uses MySQL, Node, Express, Handlebars and a homemade ORM.
+An application that tracks and saves Burger ensembles.  This application can help with organizing specific customer orderes. Technologies used: MySQL, Node, Express, Handlebars, ORM.
 
 ## Table of Contents
  
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
 * [License](#license)
  
 ## Installation
 ```
-npm install
+npm i
 ``` 
 
 ## Usage
@@ -26,12 +25,6 @@ npm install
 ## License
 This project is covered under the MIT License.
  
-
-
-## Tests
-```
-npm test
-``` 
 
 ## Questions
 - [Email](lee.amber.alex@gmail.com)
